@@ -26,9 +26,9 @@ function sshkey {
 }
 
 function downloadHadoop {
-	su -l hadoop -c "wget https://www-us.apache.org/dist/hadoop/common/hadoop-3.0.3/hadoop-3.0.3.tar.gz > .null;
-	tar -xzf hadoop-3.0.3.tar.gz > .null;
-	mv hadoop-3.0.3 hadoop"
+	su -l hadoop -c "wget https://www-us.apache.org/dist/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz > .null;
+	tar -xzf hadoop-3.2.1.tar.gz > .null;
+	mv hadoop-3.2.1 hadoop"
 }
 
 function setEnvVar {
@@ -76,7 +76,7 @@ function setupWorkers {
 	su -l hadoop -c "scp -o StrictHostKeyChecking=no hadoop-*.tar.gz hadoop@nodea:/home/hadoop"
 	su -l hadoop -c "scp -o StrictHostKeyChecking=no hadoop-*.tar.gz hadoop@nodeb:/home/hadoop"
 	for node in nodea nodeb; do
-		sshpass -p 'hadoop' ssh -o StrictHostKeyChecking=no hadoop@$node 'tar -xzf hadoop-3.0.3.tar.gz; mv hadoop-3.0.3 hadoop';
+		sshpass -p 'hadoop' ssh -o StrictHostKeyChecking=no hadoop@$node 'tar -xzf hadoop-3.2.1.tar.gz; mv hadoop-3.2.1 hadoop';
 	done
 	su -l hadoop -c "scp -o StrictHostKeyChecking=no -r /home/hadoop/hadoop/etc/hadoop/* hadoop@nodea:/home/hadoop/hadoop/etc/hadoop/"
 	su -l hadoop -c "scp -o StrictHostKeyChecking=no -r /home/hadoop/hadoop/etc/hadoop/* hadoop@nodeb:/home/hadoop/hadoop/etc/hadoop/"
