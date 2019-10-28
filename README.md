@@ -1,6 +1,6 @@
-# Hadoop-provision-3-nodes
+# 3-node Hadoop Cluster
 
-This is a Hadoop Cluster in Vagrant + Virtualbox, using bash script provision.
+Hadoop Cluster in Vagrant + Virtualbox, using bash script provision.
 
 How to use:
 
